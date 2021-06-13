@@ -2,7 +2,7 @@
 // @name         Hide Google Meet bottom bar
 // @namespace    http://tampermonkey.net/
 // @version      1.0
-// @description  Adds a button to the Google Meet's meeting interface, which lets you hide the bottom bar
+// @description  Adds a button to Google Meet's user interface, which lets you hide the bottom bar
 // @author       Alessandro Antonelli
 // @match        https://meet.google.com/*
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
@@ -21,16 +21,16 @@ const SelPadreStaPresentando = "#ow3 > div.T4LgNb > div > div:nth-child(9) > div
 const SelPresentazione = "#ow3 > div.T4LgNb > div > div:nth-child(9) > div.crqnQb > div.pHsCke > div.kjtROb > div.cIM7d > div";
 
 const SimboloChiudi = '🔻';
-const FraseChiudi = 'Nascondi la barra in basso';
+const FraseChiudi = 'Hide bottom bar';
 const SimboloApri = '🔺';
-const FraseApri = 'Mostra la barra in basso';
+const FraseApri = 'Show bottom bar';
 
 function Toggle()
 {
     var bottone = document.getElementById('BottoneToggleBarraSotto');
-    if(barra == null) { alert('Script «Meet senza barra inferiore»: Non trovo la barra! :('); return; }
-    if(StaPresentando == null) { alert('Script «Meet senza barra inferiore»: Non trovo la barra Sta Presentando! :('); return; }
-    if(bottone == null) { alert('Script «Meet senza barra inferiore»: Non trovo il bottone! :('); return; }
+    if(barra == null) { alert('[Hide Google Meet bottom bar] Cannot find bottom bar! :('); return; }
+    if(StaPresentando == null) { alert('[Hide Google Meet bottom bar] Cannot find "now presenting" bar! :('); return; }
+    if(bottone == null) { alert('[Hide Google Meet bottom bar] Cannot find button! :('); return; }
 
     if(BarraVisualizzata == true)
     {
@@ -43,7 +43,7 @@ function Toggle()
     else if(BarraVisualizzata == false)
     {
         var PadreBarra = document.querySelector(SelPadreBarra);
-        if(PadreBarra == null) alert('Script «Meet senza barra inferiore»: Non trovo PadreBarra! :(');
+        if(PadreBarra == null) alert('[Hide Google Meet bottom bar] Cannot find parent of bottom bar! :(');
         else
         {
             PadreBarra.appendChild(barra);
@@ -55,7 +55,7 @@ function Toggle()
             {
                 StaPresentando.querySelector('div.kjtROb > div.cIM7d > div:nth-child(1)').remove();
                 var PadreStaPresentando = document.querySelector(SelPadreStaPresentando);
-                if(PadreStaPresentando == null) alert('Script «Meet senza barra inferiore»: Non trovo PadreStaPresentando! :(');
+                if(PadreStaPresentando == null) alert('[Hide Google Meet bottom bar] Cannot find parent of "now presenting" bar! :(');
                 else PadreStaPresentando.appendChild(StaPresentando);
             }
         }
@@ -78,7 +78,7 @@ function sleep(ms) {
             var NuovoBottone = document.createElement('button');
             NuovoBottone.id = 'BottoneToggleBarraSotto';
             NuovoBottone.addEventListener('click', Toggle);
-            NuovoBottone.title = 'Mostra/Nascondi la barra in basso';
+            NuovoBottone.title = 'Show/Hide bottom bar';
             NuovoBottone.style.position = 'relative';
             NuovoBottone.style.top = '0px';
             NuovoBottone.style.left = '0px';
