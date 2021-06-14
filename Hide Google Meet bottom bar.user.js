@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         Hide Google Meet bottom bar
-// @namespace    http://tampermonkey.net/
+// @namespace    https://alessandro-antonelli.github.io/
 // @version      1.0
 // @description  Adds a button to Google Meet's user interface, which lets you hide the bottom bar
 // @author       Alessandro Antonelli
 // @match        https://meet.google.com/*
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        none
+// @license      MIT
 // ==/UserScript==
 
 var BarraVisualizzata = true;
