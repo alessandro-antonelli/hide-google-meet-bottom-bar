@@ -1,4 +1,4 @@
-# hide-google-meet-bottom-bar
+# Hide Google Meet bottom bar
 A Tampermonkey/Greasemonkey script that adds a button to Google Meet's user interface, which lets you hide the bottom bar (mic/cam/quit/options) and the top bar ("xx is now presenting"), to achieve a true fullscreen experience and focus only on the streamed video or presentation.
 
 ![Screenshot](screen-new-UI.gif)
